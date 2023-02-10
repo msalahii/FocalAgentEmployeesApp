@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:focal_agent_app/dependencies/service_locator.dart';
 import 'package:focal_agent_app/features/employees_list/presentation/bloc/employees_list_bloc.dart';
+import 'package:focal_agent_app/features/employees_list/presentation/widgets/delete_employee_loading_dialog.dart';
 import 'package:focal_agent_app/features/employees_list/presentation/widgets/employee_card_widget.dart';
-import 'package:focal_agent_app/features/employees_list/presentation/widgets/employee_shimmer_card_widget.dart';
+import 'package:focal_agent_app/features/employees_list/presentation/widgets/employee_loading_card_widget.dart';
 
 class EmployeesListView extends StatelessWidget {
   const EmployeesListView({super.key});
@@ -84,35 +85,7 @@ class EmployeesListView extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Failed")));
           } else if (state is DeleteEmployeeLoadingState) {
             showDialog(
-                barrierDismissible: false,
-                context: context,
-                builder: (context) => Dialog(
-                      backgroundColor: Colors.transparent,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(16)), color: Colors.white),
-                        height: 100,
-                        width: 50,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Center(
-                              child: SizedBox(
-                                height: 25,
-                                width: 25,
-                                child: CircularProgressIndicator(
-                                  color: Colors.red,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 16,
-                            ),
-                            Text("Deleting Employee..")
-                          ],
-                        ),
-                      ),
-                    ));
+                barrierDismissible: false, context: context, builder: (context) => const DeleteEmployeeLoadingDialog());
           } else if (state is DeleteEmployeeSuccessState) {
             Navigator.pop(context);
             final snackBar = SnackBar(content: Text(state.message));
