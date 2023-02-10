@@ -1,0 +1,34 @@
+{
+    "data": [
+        {
+            "employeeID": 1,
+            "firstName": "Muhammad",
+            "lastName": "Salah",
+            "category": "IT"
+        },
+        {
+            "employeeID": 2,
+            "firstName": "Jason",
+            "lastName": "Willcox",
+            "category": "IT"
+        },
+        {
+            "employeeID": 3,
+            "firstName": "Manish",
+            "lastName": "Kiranagi",
+            "category": "IT"
+        },
+        {
+            "employeeID": 4,
+            "firstName": "Basant",
+            "lastName": "Belal",
+            "category": "HR"
+        },
+        {
+            "employeeID": 5,
+            "firstName": "Ken",
+            "lastName": "Moss",
+            "category": "HR"
+        }
+    ]
+}
